@@ -4,6 +4,8 @@ body {
     margin: 0;
     padding: 20px 0;
     color: white;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.45;
 }
 
 header {
@@ -11,11 +13,21 @@ header {
     padding: 20px 0;
 }
 
+/* Headings use Montserrat for a clean, modern display */
+h1, h2, h3 {
+    font-family: 'Montserrat', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 0 0 8px 0;
+    color: white;
+}
+
+h1 { font-weight: 700; font-size: 2rem; }
+h2, h3 { font-weight: 600; font-size: 1.25rem; }
+
+
 header img {
     width: 150px;
     height: auto;
-    border: 4px solid white;
-    padding: 12px;
+    padding: 15px;
 }
 
 section.timeline {
@@ -46,6 +58,46 @@ section.timeline {
     border: 10px solid white;
     flex: 0 0 223px; /* fixed width */
     min-width: 223px;
+    height: 320px; /* fixed height */
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.cards-container div:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cards-container div:hover h2,
+.cards-container div:hover h3,
+.cards-container div:hover p {
+    color: #0068B5;
+}
+
+.cards-container img {
+    width: 100%;
+    height: 150px; /* fixed image height */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    display: block;
+    padding-top: 20px;
+}
+
+.cards-container p {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.cards-container div:hover img {
+    display: none;
+}
+
+.cards-container div:hover p {
+    display: block;
 }
 
 .scroll-btn {

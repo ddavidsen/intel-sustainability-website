@@ -6,23 +6,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector('.cards-container');
     const dots = document.querySelectorAll('.scroll-dots span');
 
+    // Calculate positions for 6 dots
+    const totalScroll = container.scrollWidth - container.clientWidth;
+    const step = totalScroll / 5; // 6 positions: 0, 1*step, 2*step, ..., 5*step
+
     leftBtn.addEventListener('click', function() {
-        container.scrollBy({
-            left: -293,
+        const currentScroll = container.scrollLeft;
+        const nextIndex = Math.round(currentScroll / step) - 1;
+        container.scrollTo({
+            left: Math.max(0, step * nextIndex),
             behavior: 'smooth'
         });
     });
 
     rightBtn.addEventListener('click', function() {
-        container.scrollBy({
-            left: 293,
+        const currentScroll = container.scrollLeft;
+        const nextIndex = Math.round(currentScroll / step) + 1;
+        container.scrollTo({
+            left: Math.min(totalScroll, step * nextIndex),
             behavior: 'smooth'
         });
     });
-
-    // Calculate positions for 6 dots
-    const totalScroll = container.scrollWidth - container.clientWidth;
-    const step = totalScroll / 5; // 6 positions: 0, 1*step, 2*step, ..., 5*step
 
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
