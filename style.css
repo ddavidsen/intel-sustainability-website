@@ -143,3 +143,38 @@ section.timeline {
 .centered-text {
     text-align: center;
 }
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .cards-container {
+        flex-direction: column;
+        max-width: 100%;
+        overflow-x: visible;
+        overflow-y: auto;
+        max-height: 600px;
+    }
+
+    .cards-container div {
+        flex: 0 0 auto;
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    section.timeline {
+        flex-direction: column;
+    }
+
+    .scroll-btn {
+        display: none;
+    }
+
+    .scroll-dots {
+        display: none;
+    }
+
+    .centered-text {
+        display: none;
+    }
+}
