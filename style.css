@@ -10,7 +10,7 @@ body {
 
 header {
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 /* Headings use Montserrat for a clean, modern display */
@@ -20,12 +20,29 @@ h1, h2, h3 {
     color: white;
 }
 
-h1 { font-weight: 700; font-size: 2rem; }
+h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+h1::before,
+h1::after {
+    content: "";
+    flex: 0 0 160px;
+    max-width: 160px;
+    border-top: 2px solid white;
+}
 h2, h3 { font-weight: 600; font-size: 1.25rem; }
 
 
 header img {
-    width: 150px;
+    width: 160px;
     height: auto;
     padding: 15px;
 }
@@ -37,13 +54,22 @@ section.timeline {
     padding: 20px;
 }
 
+.three-column-section {
+    margin: 40px;
+}
+
+.three-column-section h2 {
+    text-align: center;
+}
+
 .cards-container {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
     gap: 10px;
     padding: 10px;
-    max-width: 77vw; /* adjust as needed */
+    width: 100%;
+    max-width: 1182px;
     scrollbar-width: none; /* Firefox */
 }
 
@@ -56,6 +82,7 @@ section.timeline {
     padding: 20px;
     border-radius: 10px;
     border: 10px solid white;
+    box-sizing: content-box;
     flex: 0 0 223px; /* fixed width */
     min-width: 223px;
     height: 320px; /* fixed height */
@@ -78,7 +105,7 @@ section.timeline {
 
 .cards-container img {
     width: 100%;
-    height: 150px; /* fixed image height */
+    height: 200px; /* fixed image height */
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 6px;
@@ -142,6 +169,79 @@ section.timeline {
 
 .centered-text {
     text-align: center;
+}
+
+.learn-more-button {
+    display: inline-block;
+    background: white;
+    color: #0068B5;
+    border: 2px solid white;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.three-column-section .learn-more-button {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+}
+
+.learn-more-button:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.newsletter-section {
+  padding: 40px auto;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 420px;
+    margin: 12px auto 0;
+}
+
+.newsletter-section h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.newsletter-label {
+    font-weight: 600;
+}
+
+.newsletter-input {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid white;
+    border-radius: 999px;
+    color: white;
+    padding: 10px 16px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 480px) {
+    .newsletter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
 }
 
 /* Responsive design for smaller screens */

@@ -1,5 +1,3 @@
-// JavaScript for scrolling the timeline cards
-
 document.addEventListener('DOMContentLoaded', function() {
     const leftBtn = document.querySelector('.scroll-btn.left');
     const rightBtn = document.querySelector('.scroll-btn.right');
@@ -54,3 +52,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial active dot
     updateActiveDot(0);
 });
+
+(function () {
+  const rtlLanguages = ["ar", "he", "iw", "fa", "ur"];
+
+  const userLang =
+    navigator.languages?.[0] ||
+    navigator.language ||
+    "en";
+
+  const langCode = userLang.split("-")[0];
+
+  const isRTL = rtlLanguages.includes(langCode);
+
+  document.documentElement.lang = langCode;
+  document.documentElement.dir = isRTL ? "rtl" : "ltr";
+})();
